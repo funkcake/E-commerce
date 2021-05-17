@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
     query.Category = req.query.author_id;
   }
   Product.findAll({
-    //where: query,
+    where: query,
     include: {
       model: Category,
       required: true
@@ -27,6 +27,7 @@ router.get('/:id', (req, res) => {
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
   Product.findOne({
+    
     where: {
       id: req.params.id
     }
